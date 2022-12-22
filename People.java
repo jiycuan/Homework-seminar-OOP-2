@@ -1,5 +1,6 @@
 public class People {
 
+    int id;
     String fullName;
     String wasBorn;
     String gender;
@@ -16,10 +17,5 @@ public class People {
         System.out.printf("Семейное положение: %s \n", familyRole);
         System.out.printf("Родители: %s, %s \n", parent1, parent2);
 
-    }
-
-    public boolean search (Object o) {
-        People t = (People) o;
-        return fullName.contains(t.fullName);
     }
 }
