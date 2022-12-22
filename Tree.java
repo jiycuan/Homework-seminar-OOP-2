@@ -135,37 +135,41 @@ public class Tree {
             }
         }
 
-        List<People> children = new ArrayList<People>(); // Отдельный список, в который сохраняем список детей исследуемого
+        // Отдельный список, в который сохраняем список детей исследуемого
+        List<People> children = new ArrayList<People>(); 
 
         for (int i = 0; i < tree.size(); i++) {
-            if (user.fullName != tree.get(i).fullName & user.wasBorn != tree.get(i).wasBorn) { // Проверка не получили ли мы из списка самого исследуемого
-
-                if (user.parent1 == tree.get(i).parent1 || user.parent2 == tree.get(i).parent2) { // Проверяем степень родства на брата/сестру
-                    if (tree.get(i).gender == female) {
+            // Проверка не получили ли мы из списка самого исследуемого
+            if (user.fullName != tree.get(i).fullName & user.wasBorn != tree.get(i).wasBorn) { 
+                
+                // Проверяем степень родства на брата/сестру
+                if (user.parent1.equals(tree.get(i).parent1) || user.parent2.equals(tree.get(i).parent2)) { 
+                    if (tree.get(i).gender.equals(female)) {
                         System.out.printf("Сестра: %s \n", tree.get(i).fullName);
                     }
-                    if (tree.get(i).gender == male) {
+                    if (tree.get(i).gender.equals(male)) {
                         System.out.printf("Брат: %s \n", tree.get(i).fullName);
                     }
                 }
-                if (user.partner == tree.get(i).fullName) {  // Проверяем на тестя/тёщу/свёкра/свекровь
-                    if (user.gender == male) {
+
+                // Проверяем на тестя/тёщу/свёкра/свекровь
+                if (user.partner == tree.get(i).fullName) {  
+                    if (user.gender.equals(male)) {
                         System.out.printf("Тёща: %s \n", tree.get(i).parent2);
                         System.out.printf("Тесть: %s \n", tree.get(i).parent1);
                     }
-                    if (user.gender == female) {
+                    if (user.gender.equals(female)) {
                         System.out.printf("Свекровь: %s \n", tree.get(i).parent2);
                         System.out.printf("Свёкор: %s \n", tree.get(i).parent1);
                     }
                 }
-                // Проверяем на детей, сохраняем имена найденных в отдельном списке.
-                
-                if (user.fullName == tree.get(i).parent1 || user.fullName == tree.get(i).parent2) {  
+
+                // Проверяем на детей, сохраняем имена найденных в отдельном списке.                
+                if (user.fullName.equals(tree.get(i).parent1) || user.fullName.equals(tree.get(i).parent2)) {  
                     children.add(tree.get(i));
                 }
             }
         }
-
         // Выводим на печать список найденных детей.
         System.out.print("Дети: ");
         for (int i = 0; i < children.size(); i++) {
