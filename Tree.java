@@ -37,6 +37,7 @@ public class Tree {
         man1.familyRole = "Не женат";
         man1.parent1 = "Иванов Иван Андреевич";
         man1.parent2 = "Иванова Мария Никодимовна";
+        man1.partner = "Нет";
 
         People man2 = new People();
         man2.id = 2;
@@ -86,6 +87,7 @@ public class Tree {
         man6.familyRole = "Не замужем";
         man6.parent1 = "Иванов Пётр Иванович";
         man6.parent2 = "Иванова Ангелина Валериевна";
+        man6.partner = "Нет";
 
         People man7 = new People();
         man7.id = 7;
@@ -115,6 +117,7 @@ public class Tree {
         man9.familyRole = "Не замужем";
         man9.parent1 = "Иванов Пётр Иванович";
         man9.parent2 = "Иванова Ангелина Валериевна";
+        man9.partner = "Нет";
 
         //Сохранил всех известных членов семьи в виде списка
         List<People> tree = new ArrayList<People>(Arrays.asList(man1, man2, man3, man4, man5, man6, man7, man8, man9));
@@ -153,7 +156,7 @@ public class Tree {
                 }
 
                 // Проверяем на тестя/тёщу/свёкра/свекровь
-                if (user.partner == tree.get(i).fullName) {  
+                if (user.partner.equals(tree.get(i).fullName)) {  
                     if (user.gender.equals(male)) {
                         System.out.printf("Тёща: %s \n", tree.get(i).parent2);
                         System.out.printf("Тесть: %s \n", tree.get(i).parent1);
