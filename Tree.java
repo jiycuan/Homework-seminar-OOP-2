@@ -135,10 +135,6 @@ public class Tree {
             }
         }
 
-        // Research userResearch = new Research(); // Создаю переменную отдельного класса для проведения исследования
-        // userResearch.name = (tree.get(i).fullName);
-        // System.out.println(userResearch.name);
-
         List<People> children = new ArrayList<People>(); // Отдельный список, в который сохраняем список детей исследуемого
 
         for (int i = 0; i < tree.size(); i++) {
@@ -167,7 +163,6 @@ public class Tree {
                 if (user.fullName == tree.get(i).parent1 || user.fullName == tree.get(i).parent2) {  
                     children.add(tree.get(i));
                 }
-
             }
         }
 
